@@ -1,0 +1,12 @@
+docker:
+  swarm:
+  
+    # Specify a list of managers
+    managers:
+      - mgr01
+      - mgr02
+
+    # Define a pattern to distinguish managers; target_type may be any type
+    # supported by... 
+    manager_target: 'mgr*'
+    target_type: 'glob'

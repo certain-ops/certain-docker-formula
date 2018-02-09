@@ -1,0 +1,12 @@
+docker:
+  swarm:
+    managers:
+    manager_target: 'if*'
+    target_type: 'glob'
+    #mine:
+    #  manager_host_function: 'grains.get id'
+    #  manager_host_target: 'role:swarm_manager'
+    #  target_type: 'grains'
+    #  #manager_host_function: 'grains.get id'
+    #  #manager_host_target: 'if'
+    #  #target_type: 'glob'

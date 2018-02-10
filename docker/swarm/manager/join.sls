@@ -8,7 +8,7 @@
 
 include:
   - docker
-  - docker.swarm.mine
+  - docker.swarm.manager.mine
 {% if docker.swarm.drain_managers %}
   - docker.swarm.manager.drain
 {% endif %}

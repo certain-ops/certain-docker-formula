@@ -2,7 +2,7 @@
 
 include:
   - docker
-{%- if salt['mine.get']('*', 'docker_initializer') | default(None) == None %}
+{%- if salt['mine.get']('*', 'docker_initializer') == {} %}
   - .initialize
   {% if docker.swarm_drain_managers %}
   - .drain

@@ -12,4 +12,4 @@ update manager mines:
     - tgt: {{ docker.swarm.manager_target }}
     - tgt_type: {{ docker.swarm.manager_target_type }}
     - require:
-      - salt: bootstrap swarm manager {{ manager }}
+      - salt: bootstrap swarm manager

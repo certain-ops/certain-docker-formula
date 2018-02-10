@@ -1,7 +1,9 @@
 docker:
   swarm:
     manager_target: 'if*'
-    target_type: 'glob'
+    manager_target_type: 'glob'
+    worker_target: ''
+    worker_target_type: 'glob'
     drain_managers: false
     #mine:
     #  manager_host_function: 'grains.get id'

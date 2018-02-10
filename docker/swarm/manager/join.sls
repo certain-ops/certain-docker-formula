@@ -1,4 +1,4 @@
-{% from "docker/map.jinja" import docker with context %}
+{% from "docker/settings.sls" import docker with context %}
 
 {% set join_token = salt['mine.get']('*', 'docker_manager_token').items()[0][1] %}
 

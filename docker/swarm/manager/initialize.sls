@@ -1,4 +1,4 @@
-{% from "docker/map.jinja" import docker with context %}
+{% from "docker/settings.sls" import docker with context %}
 
 init new swarm cluster:
   cmd.run:

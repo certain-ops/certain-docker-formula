@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{% from "docker/map.jinja" import docker with context %}
+{% from "docker/settings.sls" import docker with context %}
 
 docker swarm info:
   file.managed:

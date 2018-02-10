@@ -1,0 +1,3 @@
+include:
+  - .managers
+  - .workers

@@ -31,16 +31,6 @@ docker mine initializer node:
   - name: mine.send
   - func: docker_initializer
   - kwargs:
-:qa
-
-
-
-
-
-
-
-
-
       mine_function: grains.get
   - args:
     - fqdn

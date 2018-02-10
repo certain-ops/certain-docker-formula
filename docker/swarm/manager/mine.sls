@@ -3,12 +3,12 @@
 
 {% from "docker/settings.sls" import docker with context %}
 
-docker swarm info:
-  file.managed:
-  - name: /etc/salt/minion.d/docker_swarm_mine.conf
-  - source: salt://docker/files/swarm/docker_swarm_mine.conf
-  - context:
-      docker: {{ docker }}
+#docker swarm info:
+#  file.managed:
+#  - name: /etc/salt/minion.d/docker_swarm_mine.conf
+#  - source: salt://docker/files/swarm/docker_swarm_mine.conf
+#  - context:
+#      docker: {# docker #}
 
 docker mine worker token:
   module.run:

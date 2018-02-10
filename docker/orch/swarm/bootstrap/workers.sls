@@ -1,3 +1,5 @@
+{% from "docker/settings.sls" import docker with context -%}
+
 bootstrap swarm worker:
   salt.state:
     - sls: docker.swarm.worker.join

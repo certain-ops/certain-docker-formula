@@ -1,3 +1,5 @@
+{% from "docker/settings.sls" import docker with context -%}
+
 bootstrap swarm managers:
   salt.state:
     - sls: docker.swarm.manager

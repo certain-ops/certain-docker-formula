@@ -9,14 +9,14 @@
 include:
   - docker
   - docker.swarm.mine
-{% if docker.swarm_drain_managers %}
+{% if docker.swarm.drain_managers %}
   - docker.swarm.manager.drain
 {% endif %}
 
 join cluster:
   cmd.run:
     - name: 'docker swarm join --token {{ join_token }} {{ join_endpoint }}:2377'
-{% if docker.swarm_drain_managers %}
+{% if docker.swarm.drain_managers %}
     - require_in:
       - cmd: drain manager
 {% endif %}

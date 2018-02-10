@@ -4,7 +4,7 @@ include:
   - docker
 {%- if salt['mine.get']('*', 'docker_initializer') == {} %}
   - .initialize
-  {% if docker.swarm_drain_managers %}
+  {% if docker.swarm.drain_managers %}
   - .drain
   {% endif %}
   - .mine

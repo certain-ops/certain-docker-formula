@@ -3,7 +3,7 @@
 include:
   - docker
   - docker.swarm.manager.initialize
-{% if docker.swarm_drain_managers %}
+{% if docker.swarm.drain_managers %}
   - docker.swarm.manager.drain
 {% endif %}
   - docker.swarm.manager.mine

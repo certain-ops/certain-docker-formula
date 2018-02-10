@@ -6,7 +6,7 @@ init new swarm cluster:
     - name: 'docker swarm init --advertise-addr {{ grains['fqdn'] }}'
     #- name: 'docker swarm init --advertise-addr {{ grains['id'] }}'
     #- name: 'docker swarm init --advertise-addr {{ grains['fqdn_ip4'][0] }}'
-{% if docker.swarm_drain_managers %}
+{% if docker.swarm.drain_managers %}
     - require_in:
       - cmd: drain manager
 {% endif %}

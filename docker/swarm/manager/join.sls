@@ -4,6 +4,7 @@
 {% set join_endpoint = salt['mine.get']('*', 'docker_intializer') %}
 
 # {{ salt['mine.get']('*', 'docker_initializer') }}
+# {{ salt['mine.get']('*', 'docker_initializer').values() }}
 
 include:
   - docker

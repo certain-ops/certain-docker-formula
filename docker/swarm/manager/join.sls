@@ -5,6 +5,7 @@
 
 # {{ salt['mine.get']('*', 'docker_initializer') }}
 # {{ salt['mine.get']('*', 'docker_initializer').values() }}
+# {{ salt['mine.get']('*', 'docker_initializer').values()[0] }}
 
 include:
   - docker

@@ -1,7 +1,8 @@
 {% from "docker/settings.sls" import docker with context %}
 
 {% set join_token = salt['mine.get']('*', 'docker_manager_token').items()[0][1] %}
-{% set join_endpoint = salt['mine.get']('*', 'docker_intializer').values()[0] %}
+{% set join_endpoint = salt['mine.get']('*', 'docker_intializer') %}
+{% set test = salt['mine.get']('*', 'docker_initializer').values()[0] %}
 
 # {{ salt['mine.get']('*', 'docker_initializer') }}
 # {{ salt['mine.get']('*', 'docker_initializer').values() }}

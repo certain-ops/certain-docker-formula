@@ -8,19 +8,19 @@
 
 docker worker token:
   module.run:
-    - sdb.set:
+    - name: sdb.set:
     - uri: sdb://docker_swarm/worker_token
     - value: {{ worker_token }}
 
 docker manager token:
   module.run:
-    - sdb.set
+    - name: sdb.set
     - uri: sdb://docker_swarm/manager_token
     - value: {{ manager_token }}
 
 docker initializer:
   module.run:
-    - sdb.set
+    - name: sdb.set
     - uri: sdb://docker_swarm/initializer
     - value: {{ salt['grains.get']('fqdn') }}
 

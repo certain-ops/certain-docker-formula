@@ -8,7 +8,7 @@
 
 docker worker token:
   module.run:
-    - name: sdb.set:
+    - name: sdb.set
     - uri: sdb://docker_swarm/worker_token
     - value: {{ worker_token }}
 

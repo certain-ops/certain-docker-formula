@@ -2,12 +2,12 @@
 
 include:
   - docker
-{%- if salt['mine.get']('*', 'docker_initializer') == {} %}
+{%- if salt['sdb.get']('sdb://docker_swarm/initializer') | default('') == '' %}
   - .initialize
   {% if docker.swarm.drain_managers %}
   - .drain
   {% endif %}
-  - .mine
+  - .sdb
 {%- else %}
   - .join
 {% endif %}

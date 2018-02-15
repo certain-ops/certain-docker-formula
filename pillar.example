@@ -13,3 +13,10 @@ docker:
 
     # Drain managers
     drain_managers: True
+
+# sdb config
+salt:
+  minion:
+    docker_swarm:
+      driver: <some_remote_driver> (eg. memcached, consule, ...)
+      ...

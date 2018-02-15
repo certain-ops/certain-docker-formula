@@ -2,7 +2,7 @@
 
 include:
   - docker
-{%- if salt['sdb.get']('sdb://docker_swarm/initializer') | default('') == '' %}
+{%- if salt['sdb.get']('sdb://docker_swarm/initializer') == None %}
   - .initialize
   {% if docker.swarm.drain_managers %}
   - .drain

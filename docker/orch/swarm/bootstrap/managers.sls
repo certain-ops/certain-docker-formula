@@ -1,7 +1,7 @@
 {% from "docker/settings.sls" import docker with context -%}
 
 # Should I allow docker.swarm.managers here?
-{% set manager_nodes = salt['saltuil.runner'](
+{% set manager_nodes = salt['saltutil.runner'](
     'manage.up', kwarg={
       'tgt': docker.swarm.manager_target,
       'tgt_type': docker.swarm.manager_target_type

@@ -2,10 +2,9 @@
 
 # Should I allow docker.swarm.managers here?
 {% set manager_nodes = salt['saltutil.runner'](
-    'manage.up', kwarg={
-      'tgt': docker.swarm.manager_target,
-      'tgt_type': docker.swarm.manager_target_type
-    }
+    'manage.up', 
+    tgt: docker.swarm.manager_target,
+    tgt_type: docker.swarm.manager_target_type
   )
 -%}
 {% set initializer = manager_nodes[0] -%}

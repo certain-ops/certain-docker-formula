@@ -7,7 +7,7 @@ docker init new swarm cluster:
 #}
 
 # This is done at render time...
-{% salt['cmd.run']('docker swarm init --advertise-addr {}'.format(grains['fqdn_ip4'][0])) %}
+{% do salt['cmd.run']('docker swarm init --advertise-addr {}'.format(grains['fqdn_ip4'][0])) %}
 {% set worker_token = salt['cmd.run']('docker swarm join-token worker -q') %}
 {% set manager_token = salt['cmd.run']('docker swarm join-token manager -q') %}
 

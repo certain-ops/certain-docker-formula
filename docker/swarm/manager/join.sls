@@ -5,6 +5,16 @@ def run():
   Join a docker swarm cluster
   '''
 
+  import socket
+  import time
+
+  sock = socket.socket(socket.AF_UNIX)
+  try:
+    while not sock.connect('unix:///var/run/docker.sock'):
+      time.sleep(1)
+  finally:
+    sock.close()
+
   manager_token = __salt__['sdb.get']('sdb://docker_swarm/manager_token')
   join_endpoint = __salt__['sdb.get']('sdb://docker_swarm/initializer')
   

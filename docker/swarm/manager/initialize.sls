@@ -5,6 +5,16 @@ def run():
   Initialize a docker swarm cluster and add join tokens to SDB
   '''
 
+  import socket
+  import time
+
+  sock = socket.socket(socket.AF_UNIX)
+  try:
+    while not sock.connect('unix:///var/run/docker.sock'):
+      time.sleep(1)
+  finally:
+    sock.close()
+
   __salt__['cmd.run'](
     'docker swarm init --advertise-addr {}'.format(__grains__['fqdn_ip4'][0])
   )

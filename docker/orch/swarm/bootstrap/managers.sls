@@ -4,7 +4,7 @@
 {% set manager_nodes = salt['saltutil.runner'](
     'manage.up', 
     tgt=docker.swarm.manager_target,
-    tgt_type=docker.swarm.manager_target_type
+    expr_form=docker.swarm.manager_target_type
   )
 -%}
 {% set initializer = manager_nodes[0] -%}

@@ -13,7 +13,7 @@
 docker bootstrap initializer node:
   salt.state:
     - sls: docker.swarm.manager.first
-    - tgt: {{ intializer_node }}
+    - tgt: {{ intializer }}
 
 docker bootstrap swarm managers:
   salt.state:

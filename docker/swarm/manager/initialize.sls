@@ -1,12 +1,13 @@
 {% from "docker/settings.sls" import docker with context %}
 
+{#
 docker init new swarm cluster:
   cmd.run:
     - name: 'docker swarm init --advertise-addr {{ grains['fqdn_ip4'][0] }}'
-docker sleep:
-  cmd.run:
-    - name: 'sleep 10'
+#}
 
+# This is done at render time...
+{% salt['cmd.run']('docker swarm init --advertise-addr {}'.format(grains['fqdn_ip4'][0])) %}
 {% set worker_token = salt['cmd.run']('docker swarm join-token worker -q') %}
 {% set manager_token = salt['cmd.run']('docker swarm join-token manager -q') %}
 

@@ -8,7 +8,7 @@
   )
 -%}
 {% set initializer = manager_nodes[0] -%}
-{% do manager_nodes.pop(initializer) -%}
+{% do manager_nodes.remove(initializer) -%}
 
 docker bootstrap initializer node:
   salt.state:

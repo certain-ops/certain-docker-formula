@@ -7,6 +7,11 @@ docker_check_initializer:
   cmd.run:
     - name: '[[ $(salt-call --output=newline_values_only sdb.get sdb://docker_swarm/initializer) == None ]]'
     - require_in:
-      - sls: initialize
+      #- sls: initialize
+      - cmd: docker_initialize_swarm
+      - module: docker_initializer
+      - cmd: docker_worker_token
+      - cmd: docker_manager_token
     - onfail_in:
-      - sls: join
+      #- sls: join
+      - cmd: join_cluster

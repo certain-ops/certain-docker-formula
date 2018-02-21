@@ -1,6 +1,6 @@
 include:
-  - .initialize
-  - .join
+  - docker.swarm.manager.initialize
+  - docker.swarm.manager.join
 
 # check whether sdb.get returns null, then use requisites to do initialize or join
 docker check initializer:

@@ -40,9 +40,13 @@ def run():
 {% set manager_token = salt['cmd.run']('docker swarm join-token manager -q') %}
 #}
 
+docker initialize swarm:
+  cmd.run:
+    - name: {{ 'docker swarm init --advertise-addr {}'.format(grains['fqdn_ip4'][0]) }}
+
 docker worker token:
   cmd.run:
-    - name: {{ "salt-call sdb.set 'sdb://docker_swarm/worker_token' $(docker swarm init --advertise-addr {})".format(grains['fqdn_ip4'][0]) }}
+    - name: {{ "salt-call sdb.set 'sdb://docker_swarm/worker_token' $(docker swarm join-token worker -q)" }}
 
 {#
 docker manager token:

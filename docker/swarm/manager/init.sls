@@ -1,6 +1,9 @@
 include:
   - .initialize
   - .join
+{% if docker.swarm.drain_managers %}
+  - .drain
+{% endif %}
 
 # check whether sdb.get returns null, then use requisites to do initialize or join
 docker_check_initializer:

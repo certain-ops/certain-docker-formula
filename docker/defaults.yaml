@@ -1,5 +1,6 @@
 docker:
   swarm:
+    enabled: True
     manager_target: 'if*'
     manager_target_type: 'glob'
     worker_target: ''

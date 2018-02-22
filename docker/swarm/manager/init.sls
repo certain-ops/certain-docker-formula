@@ -1,3 +1,5 @@
+{% from "docker/settings.sls" import docker with context %}
+
 include:
   - .initialize
   - .join

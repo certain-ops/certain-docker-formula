@@ -9,7 +9,7 @@ docker_initializer:
   module.run:
     - name: sdb.set
     - uri: sdb://docker_swarm/initializer
-{%- if initializer is sequence %}
+{%- if initializer is sequence and not initializer is string %}
     - value: {{ initializer[0] }}
 {%- else %}
     - value: {{ initializer }}

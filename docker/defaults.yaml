@@ -1,6 +1,7 @@
 docker:
   swarm:
     enabled: True
+    initializer_grain: 'fqdn'
     manager_target: 'if*'
     manager_target_type: 'glob'
     worker_target: ''

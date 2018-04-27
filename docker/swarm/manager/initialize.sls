@@ -4,11 +4,16 @@ docker_initialize_swarm:
   cmd.run:
     - name: {{ 'docker swarm init --advertise-addr {}'.format(grains['fqdn_ip4'][0]) }}
 
+{% set initializer = salt['grains.get'](docker.swarm.initializer_grain) -%}
 docker_initializer:
   module.run:
     - name: sdb.set
     - uri: sdb://docker_swarm/initializer
-    - value: {{ salt['grains.get']('fqdn') }}
+{%- if initializer is sequence and not initializer is string %}
+    - value: {{ initializer[0] }}
+{%- else %}
+    - value: {{ initializer }}
+{%- endif %}
 
 docker_worker_token:
   cmd.run:
